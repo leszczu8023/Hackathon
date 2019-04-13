@@ -31,10 +31,10 @@ class defaultcontent extends React.Component{
         (result) => {
           this.setState({
             isLoad: result.type
-          });
+          })
         }
       );
-    console.log(this.state.isLoad)
+    console.log(this.state.isLoad);
     };
     render(){
         return (
