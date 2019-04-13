@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import defaultcontent from "./sites/defaultcontent"
+import flag from "../App.js";
 
 class Menu extends Component {
 constructor(props){
@@ -8,18 +8,26 @@ super(props);
 }
     render() {
     return (
-<nav id="sidebar" class="one-edge-shadow-left">
+    <nav id="sidebar" class="one-edge-shadow-left">
     <div class="sidebar-header">
         <h3>Menu</h3>
     </div>
-    <IsLoggin type={this.props.isLoad}/>
+    <IsLoggin />
 </nav>
     );
 
   }
 }
-const IsLoggin = (props) => {
-if (props.type=="info") {
+class IsLoggin extends Component {
+componentDidMount() {
+    setInterval(
+        console.log(this.flag),
+      1000
+    );
+}
+render(){
+console.log(flag);
+if (flag==true) {
 return(
 
     <ul class="list-unstyled components">
@@ -49,4 +57,5 @@ else{
         );
 }
 }
+    }
 export default Menu;

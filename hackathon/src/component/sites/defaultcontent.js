@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import apiAuthenticate from "../../config.js"
+import flag from "../../App.js"
 
 class defaultcontent extends React.Component{
     constructor(props) {
@@ -29,14 +30,14 @@ class defaultcontent extends React.Component{
     body: JSON.stringify({login: this.state.login, password: this.state.password})
     })
       .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoad: result.type
-          })
+      .then((res) => {
+            this.setState({
+                isLoad:res
+            })
         }
       );
-    console.log(this.state.isLoad);
+    this.flag = true;
+
     };
     render(){
         return (
