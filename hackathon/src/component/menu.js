@@ -2,18 +2,27 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Menu extends Component {
-
+    state = {
+        isLog : 0
+    }
 
     render() {
-    return <nav id="sidebar" class="one-edge-shadow-left">
+    return (
+<nav id="sidebar" class="one-edge-shadow-left">
     <div class="sidebar-header">
         <h3>Menu</h3>
     </div>
+    <IsLoggin log={this.state.isLog}/>
+</nav>
+    );
+
+  }
+}
+const IsLoggin = (props) => {
+if (props.log>0) {
+return(
 
     <ul class="list-unstyled components">
-        <li>
-            <Link to="/">Main</Link>
-        </li>
         <li>
             <Link to="/About">About</Link>
         </li>
@@ -28,8 +37,16 @@ class Menu extends Component {
         </li>
     </ul>
 
-</nav>;
-  }
+);
 }
-
+else{
+    return (
+        <ul class="list-unstyled components">
+        <li>
+            <Link to="/">Zaloguj się</Link>
+        </li>
+        </ul>
+        );
+}
+}
 export default Menu;

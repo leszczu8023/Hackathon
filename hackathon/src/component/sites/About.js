@@ -3,7 +3,11 @@ import React, { Component } from "react";
 const About = () => {
     return (
         <section>
-            About
+            <p>
+                Nasza aplikacja ma za zadanie zaproponować
+                użytkownikowi nowe aktywności w Gdańsku na podstawie
+                znanych i wpisanych przez niego aktywności
+            </p>
         </section>
     )
 }
