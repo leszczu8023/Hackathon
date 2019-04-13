@@ -5,7 +5,7 @@ class Menu extends Component {
 
 
     render() {
-    return <nav id="sidebar">
+    return <nav id="sidebar" class="one-edge-shadow-left">
     <div class="sidebar-header">
         <h3>Menu</h3>
     </div>

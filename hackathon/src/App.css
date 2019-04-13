@@ -81,6 +81,16 @@ a:focus {
     margin: 40px 0;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -170,7 +180,7 @@ a[data-toggle="collapse"] {
 }
 
 .one-edge-shadow-left {
-	-webkit-box-shadow: 0px -13px 13px 13px black;
-	   -moz-box-shadow: 0px -13px 13px 13px black;
-	        box-shadow: 0px -13px 13px 13px black;
+	-webkit-box-shadow: -14px 0px 13px 13px black;
+	   -moz-box-shadow: -14px 0px 13px 13px black;
+	        box-shadow: -14px 0px 13px 13px black;
 }
