@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 
 class Activity extends Component {
-render() {
+
+    handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+    render() {
     return (
       <div>
-        Activity
+        <p onClick={this.handleClick}>Activity</p>
       </div>
     );
   }

@@ -65,6 +65,15 @@ a:focus {
     border: none;
 }
 
+.navbar-brand {
+  width: calc(100% - 72px);
+  padding-left: 72px;
+}
+
+.navbar-dark .navbar-toggler {
+  border: none;
+}
+
 .line {
     width: 100%;
     height: 1px;
