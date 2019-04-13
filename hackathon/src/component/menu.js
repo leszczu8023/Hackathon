@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class Menu extends Component {
     state = {
-        isLog : 0
+        isLog : 1
     }
 
     render() {
