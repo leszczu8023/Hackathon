@@ -1,0 +1,5 @@
+Merge branch 'Mariusz' of https://github.com/leszczu8023/Hackathon into Mariusz
+
+# Conflicts:
+#	hackathon/src/App.js
+#	hackathon/src/component/header.js
