@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import flag from "../App.js";
+import flag from "../flag.js";
 
 class Menu extends Component {
 constructor(props){
 super(props);
+}
+state = {
+    flag:true
 }
     render() {
     return (
@@ -12,22 +15,15 @@ super(props);
     <div class="sidebar-header">
         <h3>Menu</h3>
     </div>
-    <IsLoggin />
+    <IsLoggin type={this.state.flag}/>
 </nav>
     );
 
   }
 }
-class IsLoggin extends Component {
-componentDidMount() {
-    setInterval(
-        console.log(this.flag),
-      1000
-    );
-}
-render(){
-console.log(flag);
-if (flag==true) {
+const IsLoggin = (props) => {
+console.log(props.type);
+if (props.type==true) {
 return(
 
     <ul class="list-unstyled components">
@@ -56,6 +52,6 @@ else{
         </ul>
         );
 }
-}
+
     }
 export default Menu;

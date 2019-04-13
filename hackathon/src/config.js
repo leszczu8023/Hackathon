@@ -1,3 +1,3 @@
-let hostname = "http://192.168.137.1/api";
+const hostname = "http://192.168.137.1/api/allactivities.php";
 
-let apiAuthenticate = hostname + "/authenticate.php";
+const apiAuthenticate = hostname + "/authenticate.php";

@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import apiAuthenticate from "../../config.js"
-import flag from "../../App.js"
+import flag from "../../flag.js"
 
 class defaultcontent extends React.Component{
     constructor(props) {
@@ -24,6 +24,8 @@ class defaultcontent extends React.Component{
         password: e.target.value
     });
     }
+
+
     PostLog(e){
     e.preventDefault();
     fetch("http://192.168.137.1/api/authenticate.php",{method: 'POST',
@@ -33,10 +35,11 @@ class defaultcontent extends React.Component{
       .then((res) => {
             this.setState({
                 isLoad:res
-            })
+            });
+            if(this.state.isLoad.type=="Info"){this.flag = true};
+           //history.push('/');
         }
       );
-    this.flag = true;
 
     };
     render(){

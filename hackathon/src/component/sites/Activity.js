@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+const hostname = "http://192.168.137.1/api/allactivities.php";
+
 
 class Activity extends React.Component {
 constructor(props) {
@@ -8,7 +10,7 @@ constructor(props) {
 }
 state = {
     a:1,
-    isSend: true
+    isSend: false
 }
 
 componentDidMount() {
@@ -62,22 +64,34 @@ render() {
 
 export default Activity;
 
-const choices = [
-    "pierwsza opcja",
-    "druga opcja",
-    "trzecia opcja"
-]
+
+let choices = [];
 const AddInput = () => {
 return (
     <>
+    {Api()}
     <input list="browsers" name="browser"/>
     <datalist id="browsers">
-    {choices.map((item, index) => {
+    {choices.map((choices) => {
         return (
-            <option key={index} value={item}>{item}</option>
+            <option key={choices.activityId} value={choices.typeActivity}>{choices.typeActivity}</option>
         );
     })}
     </datalist>
     </>
 )
+}
+function Api (){
+  console.log(hostname);
+  fetch(hostname)
+      .then(response => response.json())
+      .then(
+        result => {
+        choices.push(result.responseObject);
+        console.log(choices);
+        },
+        error => {
+          console.log(error);
+        }
+      );
 }
