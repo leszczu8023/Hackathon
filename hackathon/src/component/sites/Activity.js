@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class Activity extends Component {
+class Activity extends React.Component {
 constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -19,11 +19,19 @@ handleClick(e) {
     this.setState({a:b});
     console.log(this.state.a);
   }
+createInput = () => {
+    let children = []
+    for (let i = 0; i < this.state.a; i++) {
+    children.push(<AddInput />)
+      }
+    return children
+}
+
 render() {
     return (
       <div>
         <form action="/action_page.php" method="get">
-
+        {this.createInput()}
         <p onClick={this.handleClick}>Dodaj kolejną aktywność</p>
         </form>
       </div>
@@ -35,7 +43,8 @@ export default Activity;
 
 const choices = [
     "pierwsza opcja",
-    "druga opcja"
+    "druga opcja",
+    "trzecia opcja"
 ]
 const AddInput = () => {
 return (
