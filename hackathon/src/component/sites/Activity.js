@@ -25,7 +25,7 @@ handleClick(e) {
 createInput = () => {
     let children = []
     for (let i = 0; i < this.state.a; i++) {
-    children.push(<AddInput />)
+    children.push(<AddInput num={i}/>)
       }
     return children
 }
@@ -64,12 +64,11 @@ render() {
 
 export default Activity;
 
-
 let choices = [];
-const AddInput = () => {
+const AddInput = (props) => {
 return (
     <>
-    <input list="browsers" name="browser"/>
+    <input list="browsers" name={"browser"+props.num}/>
     <datalist id="browsers">
     {choices.map((item,index) => {
         return (

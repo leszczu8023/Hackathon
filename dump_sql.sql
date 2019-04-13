@@ -23,13 +23,19 @@ DROP TABLE IF EXISTS `hack_activities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hack_activities` (
-  `activityId` int(32) NOT NULL AUTO_INCREMENT,
-  `typeActivity` varchar(256) NOT NULL,
+  `typeActivity` varchar(64) NOT NULL,
+  `activityId` int(11) NOT NULL AUTO_INCREMENT,
   `points` int(11) NOT NULL,
   `POIname` varchar(64) NOT NULL,
-  PRIMARY KEY (`activityId`),
+  PRIMARY KEY (`activityId`) USING BTREE,
   UNIQUE KEY `activityId` (`activityId`),
-  KEY `activityId_2` (`activityId`)
+  UNIQUE KEY `typeActivity_4` (`typeActivity`,`activityId`),
+  KEY `activityId_2` (`activityId`),
+  KEY `activityId_3` (`activityId`) USING BTREE,
+  KEY `typeActivity_2` (`typeActivity`),
+  KEY `activityId_4` (`activityId`),
+  KEY `typeActivity_3` (`typeActivity`,`activityId`),
+  FULLTEXT KEY `typeActivity` (`typeActivity`)
 ) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,8 +45,72 @@ CREATE TABLE `hack_activities` (
 
 LOCK TABLES `hack_activities` WRITE;
 /*!40000 ALTER TABLE `hack_activities` DISABLE KEYS */;
-INSERT INTO `hack_activities` VALUES (1,'Bieganie',1,''),(2,'aerobik',0,''),(3,'łucznictwo',0,''),(4,'lekkoatletyka',0,''),(5,'badminton',0,''),(6,'baseball',0,''),(7,'koszykówka',0,''),(8,'bilard',0,''),(9,'kulturystyka',0,''),(10,'boks',0,''),(11,'brydż',0,''),(12,'skok na bungee',0,''),(13,'kajakarstwo',0,''),(14,'sporty walki',0,''),(15,'krykiet',0,''),(16,'kolarstwo',0,''),(17,'taniec',0,''),(18,'rzutki',0,''),(19,'rzut dyskiem',0,''),(20,'nurkowanie',0,''),(21,'szermierka',0,''),(22,'łyżwiarstwo figurowe',0,''),(23,'piłka nożna',0,''),(24,'golf',0,''),(25,'gimnastyka',0,''),(26,'rzut młotem',0,''),(27,'piłka ręczna',0,''),(28,'skok wzwyż',0,''),(29,'skok w dal',0,''),(30,'skok o tyczce',0,''),(31,'hokej',0,''),(32,'judo - dżudo',0,''),(33,'karate',0,''),(34,'biegi długodystansowe',0,''),(35,'maraton',0,''),(36,'bieg',0,''),(37,'jazda na łyżworolkach',0,''),(38,'rugby',0,''),(39,'jazda na deskorolce',0,''),(40,'łyżwiarstwo',0,''),(41,'narciarstwo',0,''),(42,'skoki narciarskie',0,''),(43,'jazda na snowboardzie',0,''),(44,'squash',0,''),(45,'pływanie na desce',0,''),(46,'pływanie',0,''),(47,'tenis stołowy',0,''),(48,'tenis ziemny',0,''),(49,'siatkówka',0,''),(50,'chód',0,''),(51,'narciarstwo wodne',0,''),(52,'sporty wodne',0,''),(53,'piłka wodna',0,''),(54,'podnoszenie ciężarów',0,''),(55,'windsurfing',0,''),(56,'zapasy',0,''),(57,'yoga - joga',0,'');
+INSERT INTO `hack_activities` VALUES ('Bieganie',1,1,''),('łucznictwo',3,0,''),('lekkoatletyka',4,0,''),('badminton',5,0,''),('baseball',6,0,''),('koszykówka',7,0,''),('bilard',8,0,''),('kulturystyka',9,0,''),('boks',10,0,''),('kajakarstwo',13,0,''),('sporty walki',14,0,''),('kolarstwo',16,0,''),('taniec',17,0,''),('rzutki',18,0,''),('nurkowanie',20,0,''),('szermierka',21,0,''),('łyżwiarstwo figurowe',22,0,''),('piłka nożna',23,0,''),('golf',24,0,''),('gimnastyka',25,0,''),('piłka ręczna',27,0,''),('hokej',31,0,''),('judo - dżudo',32,0,''),('karate',33,0,''),('rugby',38,0,''),('jazda na deskorolce',39,0,''),('łyżwiarstwo',40,0,''),('narciarstwo',41,0,''),('skoki narciarskie',42,0,''),('jazda na snowboardzie',43,0,''),('squash',44,0,''),('pływanie',46,0,''),('tenis stołowy',47,0,''),('tenis ziemny',48,0,''),('siatkówka',49,0,''),('narciarstwo wodne',51,0,''),('sporty wodne',52,0,''),('podnoszenie ciężarów',54,0,''),('windsurfing',55,0,''),('zapasy',56,0,''),('yoga - joga',57,0,'');
 /*!40000 ALTER TABLE `hack_activities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hack_activities_locations`
+--
+
+DROP TABLE IF EXISTS `hack_activities_locations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hack_activities_locations` (
+  `activityId` int(11) NOT NULL,
+  `location` varchar(512) NOT NULL,
+  `locationName` varchar(512) NOT NULL,
+  PRIMARY KEY (`activityId`),
+  CONSTRAINT `hack_activities_locations_ibfk_1` FOREIGN KEY (`activityId`) REFERENCES `hack_activities` (`activityId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hack_activities_locations`
+--
+
+LOCK TABLES `hack_activities_locations` WRITE;
+/*!40000 ALTER TABLE `hack_activities_locations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hack_activities_locations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hack_activities_to_activities`
+--
+
+DROP TABLE IF EXISTS `hack_activities_to_activities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hack_activities_to_activities` (
+  `parent_activity` int(11) NOT NULL,
+  `related1` int(11) NOT NULL,
+  `related2` int(11) NOT NULL,
+  `related3` int(11) NOT NULL,
+  `related4` int(11) NOT NULL,
+  `related5` int(11) NOT NULL,
+  PRIMARY KEY (`parent_activity`,`related1`,`related2`,`related3`,`related4`,`related5`),
+  UNIQUE KEY `parent_activity` (`parent_activity`),
+  KEY `related1` (`related1`),
+  KEY `related2` (`related2`),
+  KEY `related3` (`related3`),
+  KEY `related4` (`related4`),
+  KEY `related5` (`related5`),
+  CONSTRAINT `hack_activities_to_activities_ibfk_1` FOREIGN KEY (`parent_activity`) REFERENCES `hack_activities` (`activityId`),
+  CONSTRAINT `hack_activities_to_activities_ibfk_2` FOREIGN KEY (`related1`) REFERENCES `hack_activities` (`activityId`),
+  CONSTRAINT `hack_activities_to_activities_ibfk_3` FOREIGN KEY (`related2`) REFERENCES `hack_activities` (`activityId`),
+  CONSTRAINT `hack_activities_to_activities_ibfk_4` FOREIGN KEY (`related3`) REFERENCES `hack_activities` (`activityId`),
+  CONSTRAINT `hack_activities_to_activities_ibfk_5` FOREIGN KEY (`related4`) REFERENCES `hack_activities` (`activityId`),
+  CONSTRAINT `hack_activities_to_activities_ibfk_6` FOREIGN KEY (`related5`) REFERENCES `hack_activities` (`activityId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hack_activities_to_activities`
+--
+
+LOCK TABLES `hack_activities_to_activities` WRITE;
+/*!40000 ALTER TABLE `hack_activities_to_activities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hack_activities_to_activities` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -55,8 +125,8 @@ CREATE TABLE `hack_user_activities` (
   `activityId` int(11) NOT NULL,
   PRIMARY KEY (`userid`,`activityId`),
   KEY `activityId` (`activityId`),
-  CONSTRAINT `hack_user_activities_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `hack_users` (`uid`),
-  CONSTRAINT `hack_user_activities_ibfk_3` FOREIGN KEY (`activityId`) REFERENCES `hack_activities` (`activityId`)
+  CONSTRAINT `hack_user_activities_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `hack_users` (`uid`),
+  CONSTRAINT `hack_user_activities_ibfk_2` FOREIGN KEY (`activityId`) REFERENCES `hack_activities` (`activityId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -66,7 +136,6 @@ CREATE TABLE `hack_user_activities` (
 
 LOCK TABLES `hack_user_activities` WRITE;
 /*!40000 ALTER TABLE `hack_user_activities` DISABLE KEYS */;
-INSERT INTO `hack_user_activities` VALUES (1,1),(1,2),(1,3),(1,4),(1,5);
 /*!40000 ALTER TABLE `hack_user_activities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,4 +219,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-13 23:20:08
+-- Dump completed on 2019-04-14  1:43:08
