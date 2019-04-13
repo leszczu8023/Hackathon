@@ -34,11 +34,11 @@ IsSend = () => {
         <p>Bieganie</p>
         <div class="frame">
           <iframe
-            src="https://maps.google.com/maps?width=600&amp;height=440&amp;hl=en&amp;q=Konstantego%20Bergiela%201%2C%2080-001%20Gda%C5%84sk+(Bieganie)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed"
-            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            src="https://maps.google.com/maps?q=Konstantego%20Bergiela%201%2C%2080-001%20Gda%C5%84sk&amp;output=embed"
+          ></iframe>
         </div>
         <div class="frame">
-          <iframe src="https://maps.google.com/maps?width=600&amp;height=440&amp;hl=en&amp;q=54.354750%2C%2018.543889+(Bieganie)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+          <iframe src="https://maps.google.com/maps?q=54.354750%2C%2018.543889&amp;output=embed"></iframe>
         </div>
       </div>
     );

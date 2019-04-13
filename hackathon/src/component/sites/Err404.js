@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Erro from "../../images/elektr.gif";
 
 const Err404 = () => {
