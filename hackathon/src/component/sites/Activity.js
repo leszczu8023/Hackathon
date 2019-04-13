@@ -14,7 +14,7 @@ state = {
 }
 
 componentDidMount() {
-        setInterval(console.log(this.state.a), 1000);
+        setInterval(Api(), 1000);
       }
 handleClick(e) {
     e.preventDefault();
@@ -69,7 +69,6 @@ let choices = [];
 const AddInput = () => {
 return (
     <>
-    {Api()}
     <input list="browsers" name="browser"/>
     <datalist id="browsers">
     {choices.map((item,index) => {
