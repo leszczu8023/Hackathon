@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   state = {
@@ -13,7 +14,7 @@ class Header extends Component {
       }
   render() {
     return <div class="one-edge-shadow navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">{this.props.displayName}</a>
+      <Link to={this.state.name} class="navbar-brand">{this.state.name}</Link>
       <button id="togglebutton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

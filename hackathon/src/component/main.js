@@ -5,6 +5,7 @@ import Err404 from "./sites/Err404.js";
 import defaultcontent from "./sites/defaultcontent.js";
 import Header from "./header.js";
 import Activity from "./sites/Activity.js";
+import Summary from "./sites/Summary.js";
 
 
 class Main extends Component {
@@ -13,10 +14,10 @@ render() {
       <div>
         <Header />
         <Switch>
-          <Route path="/Main" exact component={defaultcontent}/>
           <Route path="/" exact component={defaultcontent} />
           <Route path="/About" component={About} />
           <Route path="/Activity" component={Activity} />
+          <Route path="/Summary" component={Summary} />
           <Route component={Err404} />
         </Switch>
       </div>

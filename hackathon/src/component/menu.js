@@ -12,7 +12,7 @@ class Menu extends Component {
 
     <ul class="list-unstyled components">
         <li>
-            <Link to="/Main">Main</Link>
+            <Link to="/">Main</Link>
         </li>
         <li>
             <Link to="/About">About</Link>
@@ -22,6 +22,9 @@ class Menu extends Component {
         </li>
         <li>
             <Link to="/Comp2">Comp2</Link>
+        </li>
+        <li>
+            <Link to="/Summary">Podsumowanie</Link>
         </li>
     </ul>
 
