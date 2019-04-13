@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import defaultcontent from "./sites/defaultcontent"
 
 class Menu extends Component {
-    state = {
-        isLog : 0
-    }
-
+constructor(props){
+super(props);
+}
     render() {
     return (
 <nav id="sidebar" class="one-edge-shadow-left">
     <div class="sidebar-header">
         <h3>Menu</h3>
     </div>
-    <IsLoggin log={this.state.isLog}/>
+    <IsLoggin type={this.props.isLoad}/>
 </nav>
     );
 
   }
 }
 const IsLoggin = (props) => {
-if (props.log>0) {
+if (props.type=="info") {
 return(
 
     <ul class="list-unstyled components">
