@@ -97,7 +97,7 @@ CREATE TABLE `hack_users` (
 
 LOCK TABLES `hack_users` WRITE;
 /*!40000 ALTER TABLE `hack_users` DISABLE KEYS */;
-INSERT INTO `hack_users` VALUES (1,'administrator','qwerty','2019-04-13 15:27:43','admin@example.com');
+INSERT INTO `hack_users` VALUES (1,'admin','qwerty','2019-04-13 15:27:43','admin@example.com');
 /*!40000 ALTER TABLE `hack_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,4 +150,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-13 19:21:13
+-- Dump completed on 2019-04-13 20:00:31

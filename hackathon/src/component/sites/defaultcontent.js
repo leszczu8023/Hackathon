@@ -25,7 +25,9 @@ class defaultcontent extends React.Component{
     }
     PostLog(e){
     e.preventDefault();
-    fetch(apiAuthenticate)
+    fetch("http://192.168.137.1/api/authenticate.php",{method: 'POST',
+    body: JSON.stringify({login: this.state.login, password: this.state.password})
+    })
       .then(res => res.json())
       .then(
         (result) => {

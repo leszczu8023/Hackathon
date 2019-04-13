@@ -6,8 +6,8 @@ require_once("../inc/std_include.php");
 
 $conn = DBConn::inst();
 
-$user = Utils::get_filtered_post("login");
-$pass = Utils::get_filtered_post("password");
+$user = Utils::get_filtered_json("login");
+$pass = Utils::get_filtered_json("password");
 
 $data = $conn->get_obj("users",FieldFilters::$FILTER_STDUSER, "LOWER(username) = LOWER(\"$user\") and password = \"$pass\"");
 
