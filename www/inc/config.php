@@ -10,4 +10,4 @@ $_CONF["db"]["pref"] = "hack";
 
 $_CONF["db"]["debug"] = 0;
 
-$_CONF["test_mode"] = 0;
+$_CONF["test_mode"] = 1;
