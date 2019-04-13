@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const hostname = "http://192.168.137.1/api/allactivities.php";
+const hostname = "http://147.135.210.202/api/allactivities.php";
 
 
 class Activity extends React.Component {
