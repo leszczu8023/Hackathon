@@ -9,7 +9,7 @@ constructor(props) {
     this.handleClick = this.handleClick.bind(this);
 }
 state = {
-    a:1,
+    a:0,
     isSend: false
 }
 
@@ -72,9 +72,9 @@ return (
     {Api()}
     <input list="browsers" name="browser"/>
     <datalist id="browsers">
-    {choices.map((choices) => {
+    {choices.map((item,index) => {
         return (
-            <option key={choices.activityId} value={choices.typeActivity}>{choices.typeActivity}</option>
+            <option key={index} value={item.typeActivity}>{item.typeActivity}</option>
         );
     })}
     </datalist>
@@ -87,7 +87,7 @@ function Api (){
       .then(response => response.json())
       .then(
         result => {
-        choices.push(result.responseObject);
+        choices = result.responseObject;
         console.log(choices);
         },
         error => {
