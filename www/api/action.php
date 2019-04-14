@@ -34,7 +34,7 @@ if (!$data) {
     
     if ($c <= 0) 
     {
-        header("Location: http://hc.leszczu8023.ovh:3000/Summary?state=empty");
+        header("Location: https://hc.leszczu8023.ovh/Summary?state=empty");
         exit(0);
     }
     
@@ -120,6 +120,6 @@ if (!$data) {
     
     
     
-    header("Location: http://hc.leszczu8023.ovh:3000/Summary?". http_build_query($resp));
+    header("Location: https://hc.leszczu8023.ovh/Summary?". http_build_query($resp));
     //JSONResp::info_resp("Testvar: [" . join(", ", ) . "]", "data.userinfo::success", $data);
 }

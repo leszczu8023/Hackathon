@@ -44,12 +44,25 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
 
+    <script>
+      function overlayOn() {
+        //document.getElementById("overlay").style.display = "block";   
+        $("#overlay").fadeIn('fast');
+      }
+
+      function overlayOff() {
+        $("#overlay").fadeOut('fast');
+        //document.getElementById("overlay").style.display = "none";
+      }
+    </script>
+
   <title>React App</title>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="content" class="noselect"></div>
+  <div id="overlay"></div>
+  <div id="content" class="noselect scrollbar"></div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -74,13 +87,32 @@
           $('#sidebar').animate({
             left: '0'
           }, 0.5);
+          overlayOn();
         } else {
           // close/hide menu
           $('#sidebar').animate({
             left: '-250px'
           }, 0.5);
+          overlayOff();
         }
 
+      });
+
+      
+      $("#overlay").click(() => {
+        overlayOff();
+        $('#sidebar').animate({
+            left: '-250px'
+          }, 0.5);
+      });
+
+      $("#content").click(() => {
+        if ($('#sidebar').css("left") !== '-250px') {
+          overlayOff();
+          $('#sidebar').animate({
+              left: '-250px'
+            }, 0.5);
+        }
       });
 
       $("#togglebutton").click(() => {
@@ -88,11 +120,13 @@
           $('#sidebar').animate({
             left: '-250px'
           }, 0.5);
+          overlayOff();
         }
         else {
           $('#sidebar').animate({
             left: '0'
           }, 0.5);
+          overlayOn();
         }
       });
     });

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import flag from "../flag.js";
 
 class Menu extends Component {
 constructor(props){
@@ -13,7 +12,7 @@ state = {
     return (
     <nav id="sidebar" class="one-edge-shadow-left">
     <div class="sidebar-header">
-        <h3>Menu</h3>
+        <h4>Menu główne</h4>
     </div>
     <IsLoggin type={this.state.flag}/>
 </nav>
@@ -22,8 +21,6 @@ state = {
   }
 }
 const IsLoggin = (props) => {
-console.log(props.type);
-if (props.type==true) {
 return(
 
     <ul class="list-unstyled components">
@@ -33,19 +30,12 @@ return(
         <li>
             <Link to="/Activity">Wybór aktywności</Link>
         </li>
+        <li>
+            <Link to="/">Strona Powitalna</Link>
+        </li>
     </ul>
 
 );
 }
-else{
-    return (
-        <ul class="list-unstyled components">
-        <li>
-            <Link to="/">Zaloguj się</Link>
-        </li>
-        </ul>
-        );
-}
 
-    }
 export default Menu;

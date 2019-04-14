@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const hostname = "http://147.135.210.202/api/allactivities.php";
+const hostname = "https://hc.leszczu8023.ovh:444/api/allactivities.php";
 
 
 class Activity extends React.Component {
@@ -19,7 +19,7 @@ componentDidMount() {
         setInterval(()  =>  {
           if(this.state.a>0){
             this.setState(() => {
-              return{ input: <input class="btn btn-primary" type="submit" value="Sprawdź swoją listę aktywności"/>}
+              return{ input: <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sprawdź swoją listę aktywności"/>}
             })
           }
         }, 1000);
@@ -55,9 +55,9 @@ IsSend = () => {
     );
   }else{
     return(
-    <form action="https://hc.leszczu8023.ovh/api/action.php" method="post">
+    <form action="https://hc.leszczu8023.ovh:444/api/action.php" method="post">
         {this.createInput()}
-        <button type="button" class="btn btn-secondary" onClick={this.handleClick}> + Dodaj aktywność</button><p></p>
+        <button type="button" class="btn btn-secondary btn-lg btn-block" onClick={this.handleClick}> + Dodaj aktywność</button><p></p>
         {this.state.input}
     </form>
     )
