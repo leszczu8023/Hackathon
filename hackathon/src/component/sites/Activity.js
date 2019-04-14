@@ -10,11 +10,19 @@ constructor(props) {
 }
 state = {
     a:0,
-    isSend: false
+    isSend: false,
+    input: null
 }
 
 componentDidMount() {
-        setInterval(Api(), 1000);
+        setInterval(()  =>  {
+          Api();
+          if(this.state.a>0){
+            this.setState(() => {
+              return{ input: <input type="submit"/>}
+            })
+          }
+        }, 1000);
       }
 handleClick(e) {
     e.preventDefault();
@@ -46,13 +54,15 @@ IsSend = () => {
     );
   }else{
     return(
-    <form action="/action_page.php" method="get">
+    <form action="https://hc.leszczu8023.ovh/api/action.php" method="post">
         {this.createInput()}
         <p onClick={this.handleClick}>Dodaj kolejną aktywność</p>
+        {this.state.input}
     </form>
     )
   }
 }
+
 render() {
     return (
       <div>
@@ -72,10 +82,11 @@ return (
     <datalist id="browsers">
     {choices.map((item,index) => {
         return (
-            <option key={index} value={item.typeActivity}>{item.typeActivity}</option>
+            <option key={index} value={item.activityId}>{item.typeActivity}</option>
         );
     })}
     </datalist>
+
     </>
 )
 }

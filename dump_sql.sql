@@ -58,9 +58,9 @@ DROP TABLE IF EXISTS `hack_activities_locations`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hack_activities_locations` (
   `activityId` int(11) NOT NULL,
-  `location` varchar(512) NOT NULL,
+  `location` varchar(64) NOT NULL,
   `locationName` varchar(512) NOT NULL,
-  PRIMARY KEY (`activityId`),
+  PRIMARY KEY (`activityId`,`location`),
   CONSTRAINT `hack_activities_locations_ibfk_1` FOREIGN KEY (`activityId`) REFERENCES `hack_activities` (`activityId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -71,6 +71,7 @@ CREATE TABLE `hack_activities_locations` (
 
 LOCK TABLES `hack_activities_locations` WRITE;
 /*!40000 ALTER TABLE `hack_activities_locations` DISABLE KEYS */;
+INSERT INTO `hack_activities_locations` VALUES (1,'54.354750,18.543889',''),(4,'aleja Grunwaldzka 244, 80-001 Gdańsk',''),(4,'aleja Grunwaldzka 244, 80-314 Gdańsk',''),(4,'Traugutta 29, 80-221 Gdańsk',''),(5,'Juliusza Słowackiego 21, 80-257 Gdańsk',''),(5,'Szklana Huta 7, 80-529 Gdańsk',''),(5,'Załogowa 1, 80-557 Gdańsk',''),(7,'aleja Zwycięstwa 51, 80-208 Gdańsk',''),(7,'Jelitkowski Dwór 2, 80-365 Gdańsk',''),(7,'Macieja Kamieńskiego, 80-980 Gdańsk',''),(8,'Gdyńska 4, 80-340 Gdańsk',''),(8,'Hynka 69, 80-465 Gdańsk',''),(8,'Plac Dominikański 7, 80-844 Gdańsk',''),(9,'Jaśkowa Dolina 105, 80-286 Gdańsk',''),(9,'Subisława 37, 80-354 Gdańsk',''),(10,'Niterów 31B, 80-001 Gdańsk',''),(10,'Traugutta 84, 80-229 Gdańsk',''),(10,'Zeusa 12/5, 80-180 Gdańsk',''),(13,'Żabi Kruk 15, 80-822 Gdańsk',''),(13,'Załogowa 1, 80-557 Gdańsk',''),(14,'Traugutta 84, 80-229 Gdańsk',''),(14,'Wyzwolenia 8, 80-001 Gdańsk',''),(16,'54.364166, 18.539128',''),(17,'aleja Grunwaldzka 301, 80-236 Gdańsk',''),(18,'Okopowa 7, 80-033 Gdańsk',''),(20,'Myśliwskie Wzgórze 4/9, 80-283 Gdańsk',''),(20,'Władysława Pniewskiego 7/1, 80-246 Gdańsk',''),(21,'VII Dwór 7, 80-301 Gdańsk',''),(22,'aleja Grunwaldzka 470 ,80-309 Gdańsk',''),(23,'Dąbrowszczaków 13, 80-365 Gdańsk',''),(23,'Uczniowska 22, 80-531 Gdańsk',''),(23,'Zaspa, 80-001 Gdańsk',''),(24,'Postołowo, 83-042 Ełganowo',''),(24,'Przodkowska 63, 83-304 Tokary',''),(25,'Kazimierza Górskiego 1, 80-336 Gdańsk',''),(25,'Piotra Czajkowskiego 1, 80-169 Gdańsk',''),(27,'Czarny Dwór 6, 80-365 Gdańsk',''),(27,'Kołobrzeska 77, 80-396 Gdańsk',''),(27,'Startowa 9, 80-461 Gdańsk',''),(31,'Al. Grunwaldzka 470, 80-309 Gdańsk',''),(31,'aleja Grunwaldzka 470, 80-309 Gdańsk',''),(32,'Józefa Czyżewskiego, 80-001 Gdańsk',''),(32,'Juliusza Słowackiego 101, 80-281 Gdańsk',''),(32,'Wodnika 57, 80-299 Gdańsk',''),(33,'Adama Mickiewicza 6A, 80-426 Gdańsk',''),(33,'Aksamitna 4, 80-001 Gdańsk',''),(38,'aleja Grunwaldzka 244, 80-001 Gdańsk',''),(39,'54.413851, 18.603414',''),(44,'Kazimierza Górskiego 1, 80-336 Gdańsk',''),(44,'Załogowa 17, 80-557 Gdańsk',''),(46,'Azaliowa 18, 80-177 Gdańsk',''),(46,'Heleny Marusarzówny 10, 80-288 Gdańsk',''),(46,'Subisława 22, 80-354 Gdańsk',''),(47,'aleja Rzeczypospolitej 1D/54, 80-369 Gdańsk',''),(47,'Meissnera 3, 80-462 Gdańsk',''),(48,'aleja Legionów 7, 80-441 Gdańsk',''),(48,'Dąbrowszczaków 13, 80-365 Gdańsk',''),(49,'aleja Grunwaldzka 244, 80-314 Gdańsk',''),(49,'Kołobrzeska 61, 80-396 Gdańsk',''),(51,'aleja Zwycięstwa 51, 80-208 Gdańsk',''),(52,'Jantarowa, 80-341 Gdańsk',''),(54,'Opolska 6, 80-395 Gdańsk',''),(55,'Hestii 3, 81-701 Sopot',''),(56,'Subisława 22, 80-354 Gdańsk','');
 /*!40000 ALTER TABLE `hack_activities_locations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,6 +111,7 @@ CREATE TABLE `hack_activities_to_activities` (
 
 LOCK TABLES `hack_activities_to_activities` WRITE;
 /*!40000 ALTER TABLE `hack_activities_to_activities` DISABLE KEYS */;
+INSERT INTO `hack_activities_to_activities` VALUES (1,4,46,16,13,41),(3,4,5,18,49,13),(5,24,48,47,18,8),(13,1,3,4,51,52),(16,1,13,39,43,42),(17,22,25,57,46,40),(18,8,24,47,5,21),(21,14,10,3,56,44),(22,17,57,40,25,41),(23,49,44,7,27,4),(25,4,46,16,13,3),(27,6,38,7,31,44),(31,27,56,6,38,14),(32,33,14,10,56,31),(38,31,56,6,21,27),(47,48,18,8,24,31),(54,9,4,56,14,1),(55,52,51,20,46,40),(56,54,10,9,38,14),(57,17,22,20,18,42);
 /*!40000 ALTER TABLE `hack_activities_to_activities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,4 +221,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-14  1:43:08
+-- Dump completed on 2019-04-14  4:01:11
