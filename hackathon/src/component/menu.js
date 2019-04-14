@@ -33,12 +33,6 @@ return(
         <li>
             <Link to="/Activity">Wybór aktywności</Link>
         </li>
-        <li>
-            <Link to="/Comp2">Comp2</Link>
-        </li>
-        <li>
-            <Link to="/Summary">Podsumowanie</Link>
-        </li>
     </ul>
 
 );

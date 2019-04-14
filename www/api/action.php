@@ -27,14 +27,18 @@ if (!$data) {
         $l++;
     }
     
-    if (count($values) <= 0) 
+    
+ 
+    $val = [];
+    $c = count($values[0]);
+    
+    if ($c <= 0) 
     {
         header("Location: http://hc.leszczu8023.ovh:3000/Summary?state=empty");
         exit(0);
     }
- 
-    $val = [];
-    $c = count($values);
+    
+    //var_dump($values);
     
     if ($c === 1) {
         if (isset($values[0])) {
@@ -108,7 +112,7 @@ if (!$data) {
         $result[] = array("id"=>$eeee, "value"=>$acts[$eeee], "addresses"=>$x);
     }
         
-    echo json_encode($result);
+    //echo json_encode($result);
     $resp = array(
         'data' => json_encode($result),
         'state' => 'ok'

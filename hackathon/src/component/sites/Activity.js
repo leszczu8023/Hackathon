@@ -15,11 +15,11 @@ state = {
 }
 
 componentDidMount() {
+        Api();
         setInterval(()  =>  {
-          Api();
           if(this.state.a>0){
             this.setState(() => {
-              return{ input: <input type="submit"/>}
+              return{ input: <input class="btn btn-primary" type="submit" value="Sprawdź swoją listę aktywności"/>}
             })
           }
         }, 1000);
@@ -27,6 +27,7 @@ componentDidMount() {
 handleClick(e) {
     e.preventDefault();
     let b = this.state.a+1;
+    
     this.setState({a:b});
     console.log(this.state.a);
   }
@@ -56,7 +57,7 @@ IsSend = () => {
     return(
     <form action="https://hc.leszczu8023.ovh/api/action.php" method="post">
         {this.createInput()}
-        <p onClick={this.handleClick}>Dodaj kolejną aktywność</p>
+        <button type="button" class="btn btn-secondary" onClick={this.handleClick}> + Dodaj aktywność</button><p></p>
         {this.state.input}
     </form>
     )
@@ -78,7 +79,7 @@ let choices = [];
 const AddInput = (props) => {
 return (
     <>
-    <select name={"browser"+props.num}>
+    <select class="custom-select" name={"browser"+props.num}>
     {choices.map((item,index) => {
         return (
             <option key={index} value={item.activityId}>{item.typeActivity}</option>
