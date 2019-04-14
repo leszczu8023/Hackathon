@@ -184,7 +184,7 @@ a[data-toggle="collapse"] {
 	   -moz-box-shadow: -14px 0px 13px 13px black;
 	        box-shadow: -14px 0px 13px 13px black;
 }
-input{
+input, select{
   display: flex;
   align-items: center;
   justify-content: center;

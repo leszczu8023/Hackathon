@@ -78,14 +78,13 @@ let choices = [];
 const AddInput = (props) => {
 return (
     <>
-    <input list="browsers" name={"browser"+props.num}/>
-    <datalist id="browsers">
+    <select name={"browser"+props.num}>
     {choices.map((item,index) => {
         return (
             <option key={index} value={item.activityId}>{item.typeActivity}</option>
         );
     })}
-    </datalist>
+    </select>
 
     </>
 )

@@ -28,7 +28,7 @@ return(
 
     <ul class="list-unstyled components">
         <li>
-            <Link to="/About">About</Link>
+            <Link to="/About">O Projekcie</Link>
         </li>
         <li>
             <Link to="/Activity">Wybór aktywności</Link>
